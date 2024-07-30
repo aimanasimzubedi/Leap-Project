@@ -1,1 +1,2 @@
-students={}
+students={'name'}
+print(students())
