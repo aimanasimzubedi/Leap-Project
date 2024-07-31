@@ -53,3 +53,34 @@ while True:
         
 #output
 print("Grades list:", grades)
+
+#Marya's code (dk shit dk if it's correct)
+
+def add_grades(student_id=None, student_grade=None):
+    if student_id is None:
+        student_id = input("Enter student ID: ")
+    if student_grade is None:
+        student_grade = input("Enter student grade: ")
+
+    if student_id in students:
+        grades[student_id].append(float(student_grade))
+        return f"Grade {student_grade} added for student ID {student_id}."
+    return f"Student ID {student_id} does not exist."
+
+print(add_grades())
+print(add_grades("10312", "89"))
+
+def average_grades(student_id=None):
+    if student_id is None:
+        student_id = input("Enter student ID: ")
+
+    if student_id in students:
+        student_grades = grades[student_id]
+        if student_grades:
+            avg = sum(student_grades) / len(student_grades)
+            return f"Average grade for student ID {student_id} is {avg:.2f}."
+        return f"No grades available for student ID {student_id}."
+    return f"Student ID {student_id} does not exist."
+
+print(average_grades())
+print(average_grades("10312"))
