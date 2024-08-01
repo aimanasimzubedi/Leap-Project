@@ -26,8 +26,6 @@ while True:
     continue_adding = input("Do you want to add another student? (yes/no): ")
     if continue_adding != 'yes':
         break
-
-#output
 print("Student list:", students)
 
 # Function to record grades for a student
@@ -47,28 +45,13 @@ def record_grade(student_id=None, grade=None):
 #to loop record grades function
 while True:
     record_grade()
-    continue_recording = input("Do you want to record another grade? (yes/no): ").strip().lower()
+    continue_recording = input("Do you want to record another grade? (yes/no): ")
     if continue_recording != 'yes':
         break
         
 #output
+print("Student list:", students)
 print("Grades list:", grades)
-
-#Marya's code (dk shit dk if it's correct)
-
-def add_grades(student_id=None, student_grade=None):
-    if student_id is None:
-        student_id = input("Enter student ID: ")
-    if student_grade is None:
-        student_grade = input("Enter student grade: ")
-
-    if student_id in students:
-        grades[student_id].append(float(student_grade))
-        return f"Grade {student_grade} added for student ID {student_id}."
-    return f"Student ID {student_id} does not exist."
-
-print(add_grades())
-print(add_grades("10312", "89"))
 
 def average_grades(student_id=None):
     if student_id is None:
@@ -81,6 +64,9 @@ def average_grades(student_id=None):
             return f"Average grade for student ID {student_id} is {avg:.2f}."
         return f"No grades available for student ID {student_id}."
     return f"Student ID {student_id} does not exist."
+        
+#output
+print("Student list:", students)
+print("Grades list:", grades)
+print("average grades: ",average_grades())
 
-print(average_grades())
-print(average_grades("10312"))
