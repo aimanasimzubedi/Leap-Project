@@ -1,6 +1,6 @@
 #Dictionaries
-students = {"3": "haania"}
-grades = {"3": {"math": None, "english": None, "physics": None}}
+students = {"00003": "haania"}
+grades = {"00003": {"math": None, "english": None, "physics": None}}
 average = {}
 
 #function to calculate average grades
