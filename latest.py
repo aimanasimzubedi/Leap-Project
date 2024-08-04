@@ -2,6 +2,7 @@ students = {"3": "haania"}
 grades = {"3": {"math": None, "english": None, "physics": None}}
 average = {}
 
+#function to calculate average grades
 def average_grades(student_id=None):
     if student_id is None:
         student_id = input("Enter student ID: ")
@@ -20,6 +21,8 @@ def average_grades(student_id=None):
     else:
         print(f"Student ID {student_id} does not exist.")
 
+
+#Function to record grades
 def record_grade(student_id=None):
     if student_id is None:
         student_id = input("Enter student ID: ")
@@ -41,6 +44,8 @@ def record_grade(student_id=None):
         print(f"Recorded {subject} grade {float_value} for student {students[student_id]}.")
     average_grades(student_id)
 
+
+#Function to keep recording/changing grades
 def continue_recording():
     while True:
         continue_recording = input("Do you want to add/change an existing grade? (yes/no): ")
@@ -50,22 +55,30 @@ def continue_recording():
             break
         record_grade()
 
+
+#Function to add students
 def add_student(student_id=None, student_name=None):
     if student_id is None:
         student_id = input("Enter student ID: ")
-        while len(student_id)!=4 or student_id.isnumeric() == False:
+        while len(student_id)!=5 or student_id.isnumeric() == False:
             student_id=input("Enter Student ID again: ")
         if student_id in students:
             print(f"Student ID {student_id} already exists.")
             return
     if student_name is None:
         student_name = input("Enter student name: ")
+        while not is_valid_name(student_name):
+            student_name = input("Invalid Output. Enter student name again: ")
     students[student_id] = student_name
     grades[student_id] = {"math": None, "english": None, "physics": None}
     print(f"Student {student_name} added with ID {student_id}.")
     record_grade(student_id)
     continue_recording()
+def is_valid_name(name):
+    # Checks if name contains only alphabetic characters and spaces
+    return name.replace(" ", "").isalpha()
 
+#Loop to keep adding students
 while True:
     add_student()
     continue_adding = input("Do you want to add another student? (yes/no): ")
@@ -74,6 +87,8 @@ while True:
     if continue_adding == 'no':
         break
 
+
+#For printing the database
 print("Student list:", students)
 print("Grades list:", grades)
 
