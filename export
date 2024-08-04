@@ -1,8 +1,8 @@
 import csv
 
 # Dictionaries
-students = {"00003": "Haania"}
-grades = {"00003": {"math": None, "english": None, "physics": None}}
+students = {"00001": "Haania"}
+grades = {"00001": {"math": None, "english": None, "physics": None}}
 average = {}
 
 # Function to calculate average grades
