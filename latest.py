@@ -75,6 +75,7 @@ def add_student(student_id=None, student_name=None):
     print(f"Student {student_name} added with ID {student_id}.")
     record_grade(student_id)
     continue_recording()
+    
 def is_valid_name(name):
     # Checks if name contains only alphabetic characters and spaces
     return all(c.isalpha() or c.isspace() for c in name)
