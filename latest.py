@@ -76,7 +76,7 @@ def add_student(student_id=None, student_name=None):
     continue_recording()
 def is_valid_name(name):
     # Checks if name contains only alphabetic characters and spaces
-    return name.replace(" ", "").isalpha()
+    return all(c.isalpha() or c.isspace() for c in name)
 
 #Loop to keep adding students
 while True:
