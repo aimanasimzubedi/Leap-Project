@@ -1,14 +1,14 @@
 import csv
 
 # Dictionaries
-students = {"00003": "haania"}
+students = {"00003": "Haania"}
 grades = {"00003": {"math": None, "english": None, "physics": None}}
 average = {}
 
 # Function to calculate average grades
 def average_grades(student_id=None):
     if student_id is None:
-        student_id = input("Enter student ID: ")
+        student_id = input("Enter Student ID: ")
     if student_id in students:
         student_grades = grades[student_id]
         valid_grades = [float_value for float_value in student_grades.values() if float_value is not None]
@@ -27,7 +27,7 @@ def average_grades(student_id=None):
 # Function to record grades
 def record_grade(student_id=None):
     if student_id is None:
-        student_id = input("Enter student ID: ")
+        student_id = input("Enter Student ID: ")
     if student_id not in students:
         print(f"Student ID {student_id} does not exist.")
         return
