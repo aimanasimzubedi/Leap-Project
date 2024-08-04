@@ -54,7 +54,7 @@ def add_student(student_id=None, student_name=None):
     if student_id is None:
         student_id = input("Enter student ID: ")
         while len(student_id)!=4 or student_id.isnumeric() == False:
-            student_id=input("Enter Student ID again")
+            student_id=input("Enter Student ID again: ")
         if student_id in students:
             print(f"Student ID {student_id} already exists.")
             return
