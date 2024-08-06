@@ -122,42 +122,7 @@ def export_to_csv():
     
     print("Data exported to students_grades.csv successfully.")
 
-# Function to edit student ID
-def edit_student_id():
-    while True:
-        display_student_list()
-        old_id = input("\nEnter the current Student ID to change: ")
-        if old_id in students:
-            new_id = input("Enter the new Student ID: ")
-            if len(new_id) == 5 and new_id.isnumeric():
-                if new_id not in students:
-                    # Update student ID in dictionaries
-                    students[new_id] = students.pop(old_id)
-                    grades[new_id] = grades.pop(old_id)
-                    average[new_id] = average.pop(old_id, None)
-                    print(f"Student ID changed from {old_id} to {new_id}.")
-                    break
-                else:
-                    print(f"Student ID {new_id} already exists.")
-            else:
-                print("Invalid new Student ID format.")
-        else:
-            print("Student ID not found.")
 
-# Function to edit student name
-def edit_student_name():
-    while True:
-        display_student_list()
-        student_id = input("\nEnter the Student ID to change name: ")
-        if student_id in students:
-            new_name = input("Enter the new Student Name: ")
-            while not is_valid_name(new_name):
-                new_name = input("Invalid name. Enter the new Student Name again: ")
-            students[student_id] = new_name
-            print(f"Student name updated to {new_name}.")
-            break
-        else:
-            print("Student ID not found.")
 
 # Main menu loop
 def main_menu():
@@ -168,30 +133,24 @@ def main_menu():
     while True:
         print("\nMenu:")
         print("1. Add a new student")
-        print("2. Edit Student ID")
-        print("3. Edit Student Name")
-        print("4. Change the grade of an existing student")
-        print("5. Display the database")
-        print("6. Export data to CSV")
-        print("7. Exit")
+        print("2. Change the grade of an existing student")
+        print("3. Display the database")
+        print("4. Export data to CSV")
+        print("5. Exit")
         
-        choice = input("Enter your choice (1-7): ")
+        choice = input("Enter your choice (1-5): ")
         if choice == '1':
             add_student()
         elif choice == '2':
-            edit_student_id()
-        elif choice == '3':
-            edit_student_name()
-        elif choice == '4':
             record_grade()
-        elif choice == '5':
+        elif choice == '3':
             display_database()
-        elif choice == '6':
+        elif choice == '4':
             export_to_csv()
-        elif choice == '7':
+        elif choice == '5':
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 7.")
+            print("Invalid choice. Please enter a number between 1 and 5.")
 
 # Start the menu
 main_menu()
